@@ -39,7 +39,7 @@ def kmd5(hashmd5,liste):
     aks =0
     kontrol= []
     try:
-        dosya1=open(liste,"r",encoding="UTF_8")
+        dosya1=open(liste,"r",encoding="UTF-8")
         dosya=dosya1.readlines()
     
         if len(hashmd5)==32 and dosya !="":
@@ -76,13 +76,13 @@ def kmd5salt(hashmd5,salt,liste):
     aks =0
     kontrol= []
     try:
-        dosya1=open(liste,"r", encoding="UTF_8")
+        dosya1=open(liste,"r", encoding="UTF-8")
         dosya=dosya1.readlines()
         if len(hashmd5)==32 and dosya !="":
             for i in dosya:
                 sifre=i.replace("\n","")
-                sifre1=sifre.encode('utf-8')
-                dene=hashlib.md5(salt+sifre1).hexdigest()
+                sifre1=str(salt)+str(sifre)
+                dene=hashlib.md5(sifre1.encode('utf-8')).hexdigest()
                 if dene==hashmd5 :
                 
                     print ("---KIRILDI---")
@@ -148,7 +148,7 @@ def ksha224(hashsha224,liste):
     aks =0
     kontrol= []
     try:
-        dosya1=open(liste,"r", encoding="UTF_8")
+        dosya1=open(liste,"r", encoding="UTF-8")
         dosya=dosya1.readlines()
         if len(hashsha224)==56 and dosya !="":
             for i in dosya:
@@ -220,7 +220,7 @@ def ksha256(hashsha256,liste):
     aks =0
     kontrol= []
     try:
-        dosya1=open(liste,"r", encoding="UTF_8")
+        dosya1=open(liste,"r", encoding="UTF-8")
         dosya=dosya1.readlines()
         if len(hashsha256)==64 and dosya !="":
             for i in dosya:
@@ -256,7 +256,7 @@ def ksha384(hashsha384,liste):
     aks =0
     kontrol= []
     try:
-        dosya1=open(liste,"r", encoding="UTF_8")
+        dosya1=open(liste,"r", encoding="UTF-8")
         dosya=dosya1.readlines()
         if len(hashsha384)==96 and dosya !="":
             for i in dosya:
@@ -292,7 +292,7 @@ def ksha512(hashsha512,liste):
     aks =0
     kontrol= []
     try:
-        dosya1=open(liste,"r", encoding="UTF_8")
+        dosya1=open(liste,"r", encoding="UTF-8")
         dosya=dosya1.readlines()
         if len(hashsha512)==128 and dosya !="":
             for i in dosya:
